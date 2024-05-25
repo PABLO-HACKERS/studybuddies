@@ -2,6 +2,7 @@ import React, { useEffect, useState, memo } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import * as Font from 'expo-font';
 import Backyard from './backyard';
+import OpenClass from './openclass';
 
 
 const ClassPage = () => {
@@ -12,9 +13,14 @@ const ClassPage = () => {
 
     const [fontLoaded, setFontLoaded] = useState(false);
     const [showBackyard, setShowBackyard] = useState(false);
+    const [showClass, setShowClass] = useState(false);
 
     const handlePress = () => {
         setShowBackyard(!showBackyard);
+    };
+
+    const handleClassPress = () => {
+        setShowClass(true);
     };
 
 
@@ -35,8 +41,11 @@ const ClassPage = () => {
 
     return (
     <View style={[styles.clapyResets, styles.root]}>
+
+      {showClass && <OpenClass />}
+
     
-      {showBackyard &&
+      {(showBackyard || showClass ) &&
       <TouchableOpacity style={styles.backicon} onPress={handlePress}>
       </TouchableOpacity>}
 
@@ -69,7 +78,12 @@ const ClassPage = () => {
       <Text style={styles.cHEM101}>CHEM 101</Text>
       <View style={styles.pixilFrame11}></View>
       <Text style={styles.drAlexBrolo}>Dr. Alex Brolo</Text>
-      <View style={styles.rectangle284}></View>
+        
+      <TouchableOpacity onPress={handleClassPress}s>
+      <View style={styles.rectangle284} ></View>
+      </TouchableOpacity>
+
+
       <Text style={styles.mATH100}>MATH 100</Text>
       <View style={styles.pixilFrame1}></View>
       <Text style={styles.drTreforBazett}>Dr. Trefor Bazett</Text>
