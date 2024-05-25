@@ -13,8 +13,7 @@ const Quiz = () => {
         <View style={styles.submit}>Submit</View>
       </TouchableOpacity>
       <View style={styles.findTheDerivativeOfTheFunction}>
-        <Text style={styles.textBlock}>Find the derivative of </Text>
-        <Text style={styles.textBlock2}>the function </Text>
+        <Text style={styles.textBlock}>Find the derivative of the function</Text>
         <Text style={styles.textBlock3}>f(x)=3x^2 + 2x + 1.</Text>
       </View>
       <View style={styles.pixilFrame1}></View>
@@ -25,12 +24,6 @@ const Quiz = () => {
         <View style={styles.iPhoneXOrNewer}>
         </View>
       </View>
-      <TouchableOpacity style={styles.menuButton}>
-        <View style={styles.rectangle}></View>
-        <View style={styles.rectangle2}></View>
-        <View style={styles.rectangle3}></View>
-        <View style={styles.rectangle4}></View>
-      </TouchableOpacity>
       <View style={styles.rectangle28}></View>
       <Text style={styles.typeHere}>Type here...</Text>
       </div>
@@ -88,7 +81,7 @@ const styles = StyleSheet.create({
     color: '#211d1d',
     fontSize: 13,
     lineHeight: 24,
-    fontFamily: 'Press Start 2P, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif',
+    fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
     width: 'min-content',
     height: 'min-content',
     whiteSpace: 'nowrap',
@@ -96,9 +89,9 @@ const styles = StyleSheet.create({
   },
   findTheDerivativeOfTheFunction: {
     position: 'absolute',
-    left: 24,
+    left: 50,
     top: 357,
-    width: 347,
+    width: 300,
     height: 65,
     justifyContent: 'center',
     flexDirection: 'column',
@@ -106,20 +99,20 @@ const styles = StyleSheet.create({
   textBlock: {
     color: '#2a2b2a',
     fontSize: 15,
-    fontFamily: 'Press Start 2P, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif',
-  },
+    fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+},
   textBlock2: {
     marginTop: 10,
     color: '#2a2b2a',
     fontSize: 15,
-    fontFamily: 'Press Start 2P, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif',
-  },
+    fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+},
   textBlock3: {
     marginTop: 10,
     color: '#2a2b2a',
     fontSize: 15,
-    fontFamily: 'Press Start 2P, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif',
-  },
+    fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+},
   pixilFrame1: {
     position: 'absolute',
     left: 163,
@@ -134,7 +127,7 @@ const styles = StyleSheet.create({
   mATH100: {
     color: '#2a2b2a',
     fontSize: 40,
-    fontFamily: 'Press Start 2P, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif',
+    fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
     position: 'absolute',
     left: 36,
     top: 219,
@@ -146,7 +139,7 @@ const styles = StyleSheet.create({
   q1: {
     color: '#2a2b2a',
     fontSize: 20,
-    fontFamily: 'Press Start 2P, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif',
+    fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
     position: 'absolute',
     left: -75,
     top: 302,
