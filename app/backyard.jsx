@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const Backyard = () => {
   return (
-    <View style={{zIndex: '1000', position: 'relative'}}>
+    <View style={{zIndex: '1000000', position: 'relative'}}>
       <View style={styles._1431605648965_shop_thumb1}></View>
       <View style={styles._1431605648965_shop_thumb2}></View>
       <View style={styles.homeIndicator}>

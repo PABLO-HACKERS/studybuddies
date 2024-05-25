@@ -45,7 +45,9 @@ const ClassPage = () => {
     }
 
     return (
-    <View style={[styles.clapyResets, styles.root]}>
+    <View style={[styles.root]}>
+
+      
 
       {showClass && <OpenClass />}
 
@@ -65,9 +67,28 @@ const ClassPage = () => {
       {showBackyard && <Backyard />}
 
       <View style={styles.ellipse1}>
-        <text style={styles.plus}>+</text>
+        <Text style={styles.plus}>+</Text>
       </View>
-      
+
+      <View style={styles.pixelFrame11}></View>
+      <View style={styles.pixelFrame1}></View>
+
+
+      <View style={{
+        zIndex: "20000",
+        position: 'absolute',
+        left: 300,
+        top: 30,
+        width: 64,
+        height: 64,
+        backgroundImage: 'url("assets/logo.png")',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+
+        
+      }}></View>
+
       <View style={styles.rectangle28}></View>
       <View style={styles.newClass}>
         <Text style={styles.textBlock}>New Class</Text>
@@ -84,8 +105,11 @@ const ClassPage = () => {
       <View style={styles.pixilFrame11}></View>
       <Text style={styles.drAlexBrolo}>Dr. Alex Brolo</Text>
         
-      <TouchableOpacity onPress={handleClassPress}s>
+      <TouchableOpacity onPress={handleClassPress}>
+      <View style={styles.pixelFrame31}></View>
+
       <View style={styles.rectangle284} ></View>
+
       </TouchableOpacity>
 
 
@@ -105,12 +129,14 @@ const ClassPage = () => {
           </View>
         </View>
       </View>
+      {/*
       <TouchableOpacity style={styles.menuButton}>
         <View style={styles.rectangle}></View>
         <View style={styles.rectangle3}></View>
         <View style={styles.rectangle4}></View>
         <View style={styles.rectangle5}></View>
       </TouchableOpacity>
+      */}
     </View>
   );
 };
@@ -128,6 +154,43 @@ const styles = StyleSheet.create({
       backgroundColor: '#d7d7d7',
       overflow: 'hidden',
     },
+    pixilFrame31: {
+        position: 'absolute',
+        left: 71,
+        top: 437,
+        width: 68,
+        height: 68,
+        backgroundImage: 'url("assets/monkey.png")',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      },
+      
+      
+      pixilFrame11: {
+        position: 'absolute',
+        left: 254,
+        top: 238,
+        width: 68,
+        height: 68,
+        backgroundImage: 'url("assets/dog.png")',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      },
+
+      pixilFrame1: {
+        position: 'absolute',
+        left: 73,
+        top: 238,
+        width: 64,
+        height: 64,
+        backgroundImage: 'url("assets/cat.png")',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      },
+      
     statusBar: {
       position: 'absolute',
       left: 0,
@@ -273,8 +336,9 @@ const styles = StyleSheet.create({
         fontSize: '40px',
         fontWight: 'bolder',
         position: 'absolute',
-        left: '11px',
-        top: '-1px'
+        left:'8px',
+        top: '-7px'
+
     },
     textBlock3: {
       color: '#000',
