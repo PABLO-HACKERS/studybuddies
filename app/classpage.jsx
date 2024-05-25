@@ -1,24 +1,62 @@
-import React, { memo } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import * as Font from 'expo-font';
+import Backyard from './backyard';
+
 
 const ClassPage = () => {
+
+    module.exports = {
+        assets: ['./assets/fonts'],
+    };
+
+    const [fontLoaded, setFontLoaded] = useState(false);
+    const [showBackyard, setShowBackyard] = useState(false);
+
+    const handlePress = () => {
+        setShowBackyard(!showBackyard);
+    };
+
+
+    useEffect(() => {
+        async function loadFont() {
+        await Font.loadAsync({
+            'pixelfont': require('../assets/fonts/PressStart2P-Regular.ttf'),
+        });
+        setFontLoaded(true);
+        }
+
+        loadFont();
+    }, []);
+
+    if (!fontLoaded) {
+        return null;
+    }
+
     return (
     <View style={[styles.clapyResets, styles.root]}>
+    
+      {showBackyard &&
+      <TouchableOpacity style={styles.backicon} onPress={handlePress}>
+      </TouchableOpacity>}
+
       <View style={styles.homeIndicator}>
         <View style={styles.homeIndicator2}></View>
       </View>
-      <TouchableOpacity style={styles.btn}>
+
+      <TouchableOpacity style={styles.btn} onPress={handlePress}>
         <Text style={styles.visitYourBuddies}>Visit Your Buddies</Text>
       </TouchableOpacity>
+
+      {showBackyard && <Backyard />}
+
       <View style={styles.ellipse1}>
-        /* ellipse icon */
       </View>
       <View style={styles.rectangle1}></View>
       <View style={styles.rectangle2}></View>
       <View style={styles.rectangle28}></View>
       <View style={styles.newClass}>
-        <Text style={styles.textBlock}>New</Text>
-        <Text style={styles.textBlock2}>Class</Text>
+        <Text style={styles.textBlock}>New Class</Text>
       </View>
       <View style={styles.rectangle282}></View>
       <Text style={styles.eCE369}>ECE 369</Text>
@@ -37,18 +75,14 @@ const ClassPage = () => {
       <Text style={styles.drTreforBazett}>Dr. Trefor Bazett</Text>
       <Text style={styles.classes}>Classes</Text>
       <TouchableOpacity style={styles.back}>
-        /* backicon*/
       </TouchableOpacity>
       <TouchableOpacity style={styles.back2}>
-        /* backicon*/
       </TouchableOpacity>
       <View style={styles.statusBar}>
         <View style={styles.iPhoneXOrNewer}>
           <View style={styles.rightSide}>
-            /* rightsideicon */
           </View>
           <View style={styles.time}>
-            /* timeicon */
           </View>
         </View>
       </View>
@@ -61,8 +95,10 @@ const ClassPage = () => {
     </View>
   );
 };
+  
 
 const styles = StyleSheet.create({
+
     root: {
       position: 'relative',
       width: 390,
@@ -167,7 +203,7 @@ const styles = StyleSheet.create({
     classes: {
       color: '#2a2b2a',
       fontSize: 40,
-      fontFamily: 'Press Start 2P, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+      fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
       position: 'absolute',
       left: 55,
       top: 130,
@@ -189,7 +225,7 @@ const styles = StyleSheet.create({
       color: '#000',
       fontSize: 13,
       lineHeight: 24,
-      fontFamily: 'Press Start 2P, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+      fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
       position: 'absolute',
       left: 53,
       top: 317,
@@ -232,7 +268,7 @@ const styles = StyleSheet.create({
       color: '#000',
       fontSize: 13,
       lineHeight: 24,
-      fontFamily: 'Press Start 2P, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+      fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
       position: 'absolute',
       left: 234,
       top: 317,
@@ -266,7 +302,7 @@ const styles = StyleSheet.create({
       color: '#000',
       fontSize: 13,
       lineHeight: 24,
-      fontFamily: 'Press Start 2P, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+      fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
       position: 'absolute',
       left: 53,
       top: 524,
@@ -306,15 +342,9 @@ const styles = StyleSheet.create({
       color: '#000',
       fontSize: 13,
       lineHeight: 24,
-      fontFamily: 'Press Start 2P, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+      fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
     },
-    textBlock2: {
-      color: '#8a8b8a',
-      fontSize: 10,
-      lineHeight: 20,
-      fontWeight: 400,
-      fontFamily: 'Manrope, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
-    },
+    
     ellipse1: {
       position: 'absolute',
       left: 293,
@@ -322,6 +352,7 @@ const styles = StyleSheet.create({
       width: 48,
       height: 48,
       borderRadius: 24,
+      zIndex: 10,
       backgroundColor: '#8acb88b2',
     },
     rectangle1: {
@@ -351,10 +382,25 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
+
+    backicon: {
+        position: 'absolute',
+        zIndex: '10000',
+        left: '20px',
+        top: '80px',
+        width: '16px',
+        height: '16px',
+        backgroundImage: 'url("assets/backicon.png")',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+    },
     visitYourBuddies: {
-      color: '#fff',
-      fontSize: 20,
+      color: '#2a2b2a',
+      fontSize: 15,
       fontWeight: '500',
+      fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+
     },
     homeIndicator: {
       position: 'absolute',
