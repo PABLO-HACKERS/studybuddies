@@ -34,12 +34,14 @@ const OpenClass = () => {
       <View style={styles.back}></View>
       <View style={styles.statusBar}>
       </View>
+      {/*
       <TouchableOpacity style={styles.menuButton}>
         <View style={styles.rectangle}></View>
         <View style={styles.rectangle2}></View>
         <View style={styles.rectangle3}></View>
         <View style={styles.rectangle4}></View>
       </TouchableOpacity>
+  */}
     </View>
   );
 };

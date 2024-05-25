@@ -23,6 +23,11 @@ const ClassPage = () => {
         setShowClass(true);
     };
 
+    const mainScreen = () => {
+        setShowClass(false);
+        setShowBackyard(false);
+    };
+
 
     useEffect(() => {
         async function loadFont() {
@@ -46,7 +51,7 @@ const ClassPage = () => {
 
     
       {(showBackyard || showClass ) &&
-      <TouchableOpacity style={styles.backicon} onPress={handlePress}>
+      <TouchableOpacity style={styles.backicon} onPress={mainScreen}>
       </TouchableOpacity>}
 
       <View style={styles.homeIndicator}>
@@ -60,9 +65,9 @@ const ClassPage = () => {
       {showBackyard && <Backyard />}
 
       <View style={styles.ellipse1}>
+        <text style={styles.plus}>+</text>
       </View>
-      <View style={styles.rectangle1}></View>
-      <View style={styles.rectangle2}></View>
+      
       <View style={styles.rectangle28}></View>
       <View style={styles.newClass}>
         <Text style={styles.textBlock}>New Class</Text>
@@ -234,6 +239,8 @@ const styles = StyleSheet.create({
       outlineOffset: '-1px',
       borderRadius: 24,
       backgroundColor: '#e4e4e4',
+      borderWidth: 2,
+
     },
     mATH100: {
       color: '#000',
@@ -261,6 +268,14 @@ const styles = StyleSheet.create({
       top: 341,
       flexDirection: 'column',
     },
+    plus: {
+        color: 'black',
+        fontSize: '40px',
+        fontWight: 'bolder',
+        position: 'absolute',
+        left: '11px',
+        top: '-1px'
+    },
     textBlock3: {
       color: '#000',
       fontSize: 12,
@@ -277,6 +292,7 @@ const styles = StyleSheet.create({
       outlineOffset: '-1px',
       borderRadius: 24,
       backgroundColor: '#e4e4e4',
+      borderWidth: 2
     },
     cHEM101: {
       color: '#000',
@@ -311,6 +327,7 @@ const styles = StyleSheet.create({
       outlineOffset: '-1px',
       borderRadius: 24,
       backgroundColor: '#e4e4e4',
+      borderWidth: 2,
     },
     eCE369: {
       color: '#000',
@@ -341,16 +358,16 @@ const styles = StyleSheet.create({
       top: 401,
       width: 169,
       height: 186,
-      outline: 'solid 1px #282424',
+      border: '2px dotted black',
       outlineOffset: '-1px',
       borderRadius: 24,
-      backgroundColor: '#e4e4e4',
     },
     newClass: {
       position: 'absolute',
       left: 230,
       top: 525,
       flexDirection: 'column',
+
     },
     textBlock: {
       color: '#000',
@@ -361,13 +378,14 @@ const styles = StyleSheet.create({
     
     ellipse1: {
       position: 'absolute',
-      left: 293,
-      top: 553,
+      left: 263,
+      top: 463,
       width: 48,
       height: 48,
       borderRadius: 24,
       zIndex: 10,
-      backgroundColor: '#8acb88b2',
+      borderWidth:2,
+      
     },
     rectangle1: {
       position: 'absolute',
