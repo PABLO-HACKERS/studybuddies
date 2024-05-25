@@ -482,7 +482,7 @@ const styles = StyleSheet.create({
 
     backicon: {
         position: 'absolute',
-        zIndex: '10000',
+        zIndex: '100000000',
         left: '20px',
         top: '80px',
         width: '16px',

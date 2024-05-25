@@ -1,9 +1,15 @@
 import {React, useState} from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import Quiz from './quiz';
+import { TextInput } from 'react-native-web';
 
 const OpenClass = () => {
 
   const [showQuestions, setShowQuestion] = useState(false);
+
+  const startQuiz = () => {
+    setShowQuestion(true);
+};
 
   let diff = 0;
 
@@ -18,9 +24,11 @@ const OpenClass = () => {
       </View>
 
 
-      <TouchableOpacity className="submitButton" style={styles.btn}>
+      <TouchableOpacity className="submitButton" style={styles.btn} onPress={startQuiz}>
         <Text style={styles.submit}>Submit</Text>
       </TouchableOpacity>
+
+      {showQuestions && <Quiz />}
 
 
       <TouchableOpacity style={styles.btn2} onClick={difficulty(2)}>
@@ -32,9 +40,12 @@ const OpenClass = () => {
       <TouchableOpacity style={styles.btn4} onClick={difficulty(3)}>
         <Text style={styles.hard}>Hard</Text>
       </TouchableOpacity>
-      <View style={styles.rectangle28}></View>
-      <Text style={styles.typeHere}>Type here...</Text>
+
+    
+      <TextInput className="prompt" style={styles.rectangle28}></TextInput>
       <View style={styles.pixilFrame1}></View>
+
+
       <Text style={styles.mATH100}>MATH 100</Text>
       <View style={styles.whatWouldYouLikeToBeQuizzedOn}>
         <Text style={styles.textBlock}>What would you</Text>

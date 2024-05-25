@@ -4,7 +4,8 @@ import { StyleSheet } from 'react-native-web';
 
 const Quiz = () => {
   return (
-    <View style={[styles.root, props.className]}>
+    <View style={{zIndex:"15000"}}>
+    <div style={{height:1000, width:844, position: 'absolute', backgroundColor: '#d7d7d7'}}>
       <View style={styles.homeIndicator}>
         <View style={styles.homeIndicator2}></View>
       </View>
@@ -22,12 +23,6 @@ const Quiz = () => {
       <View style={styles.back}></View>
       <View style={styles.statusBar}>
         <View style={styles.iPhoneXOrNewer}>
-          <View style={styles.rightSide}>
-            <RightSideIcon style={styles.icon} />
-          </View>
-          <View style={styles.time}>
-            <TimeIcon style={styles.icon2} />
-          </View>
         </View>
       </View>
       <TouchableOpacity style={styles.menuButton}>
@@ -38,6 +33,7 @@ const Quiz = () => {
       </TouchableOpacity>
       <View style={styles.rectangle28}></View>
       <Text style={styles.typeHere}>Type here...</Text>
+      </div>
     </View>
   );
 };
@@ -53,6 +49,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#d7d7d7',
     overflow: 'hidden',
   },
+  quizstyle: {
+    zIndex: 30000
+  },
+
   homeIndicator: {
     position: 'absolute',
     left: 0,
