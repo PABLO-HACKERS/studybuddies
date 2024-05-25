@@ -111,6 +111,7 @@ const ClassPage = () => {
       <View style={styles.rectangle284} ></View>
 
       </TouchableOpacity>
+      
 
 
       <Text style={styles.mATH100}>MATH 100</Text>

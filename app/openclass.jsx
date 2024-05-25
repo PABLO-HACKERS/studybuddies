@@ -1,24 +1,35 @@
-import React from 'react';
+import {React, useState} from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-
 const OpenClass = () => {
+
+  const [showQuestions, setShowQuestion] = useState(false);
+
+  let diff = 0;
+
+  const difficulty = (difficulty) => {
+    diff = difficulty
+  }
   return (
     <View style={{zIndex:"10000"}}>
       <div style={{height:1000, width:844, position: 'absolute', backgroundColor: '#d7d7d7'}}></div>
       <View style={styles.homeIndicator}>
         <View style={styles.homeIndicator2}></View>
       </View>
-      <TouchableOpacity style={styles.btn}>
+
+
+      <TouchableOpacity className="submitButton" style={styles.btn}>
         <Text style={styles.submit}>Submit</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.btn2}>
+
+
+      <TouchableOpacity style={styles.btn2} onClick={difficulty(2)}>
         <Text style={styles.medium}>Medium</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.btn3}>
+      <TouchableOpacity style={styles.btn3} onClick={difficulty(1)}>
         <Text style={styles.easy}>Easy</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.btn4}>
+      <TouchableOpacity style={styles.btn4} onClick={difficulty(3)}>
         <Text style={styles.hard}>Hard</Text>
       </TouchableOpacity>
       <View style={styles.rectangle28}></View>
