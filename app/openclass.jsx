@@ -2,17 +2,17 @@ import {React, useState} from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Quiz from './quiz';
 import { TextInput } from 'react-native-web';
+import { getQuestions } from './index.js';
 
 const OpenClass = () => {
+
+  let diff = 1;
 
   const [showQuestions, setShowQuestion] = useState(false);
 
   const startQuiz = () => {
     setShowQuestion(true);
 };
-
-  let diff = 0;
-
   const difficulty = (difficulty) => {
     diff = difficulty
   }
@@ -28,7 +28,7 @@ const OpenClass = () => {
         <Text style={styles.submit}>Submit</Text>
       </TouchableOpacity>
 
-      {showQuestions && <Quiz />}
+      {showQuestions && (getQuestions(diff, prompt) && <Quiz />)}
 
 
       <TouchableOpacity style={styles.btn2} onClick={difficulty(2)}>
