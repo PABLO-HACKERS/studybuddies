@@ -1,61 +1,24 @@
-import {React, useState} from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { StyleSheet } from 'react-native-web';
-import Answer from './answer.jsx'
-import { getQuestions } from './index.js';
 
-const Quiz = () => {
-
-    const [showCorrect, setShowCorrect] = useState(false);
-    const [showInCorrect, setShowInCorrect] = useState(false);
-
-
-  const correct = (num) => {
-    if(variable[0].correctAnswer == variable[0].choices[num]) {
-        setShowCorrect(true);
-    }
-    else {
-        setShowInCorrect(true)
-    }
-  }
-
-
-  {let variable = getQuestions();}
+const Answer = ({word}) => {
 
   return (
-    <View style={{zIndex:"15000"}}>
+    <View style={{zIndex:"16000"}}>
     <div style={{height:1000, width:844, position: 'absolute', backgroundColor: '#d7d7d7'}}>
       <View style={styles.homeIndicator}>
         <View style={styles.homeIndicator2}></View>
       </View>
       <View style={styles.findTheDerivativeOfTheFunction}>
-        <Text style={styles.textBlock}></Text>
-        <Text style={styles.textBlock3}>variable[0].question</Text>
+        <Text style={styles.textBlock}>Answer is {word}!</Text>
+        <Text style={styles.textBlock2}>Quiz is now over</Text>
+
       </View>
       <View style={styles.pixilFrame1}></View>
       <Text style={styles.mATH100}>MATH 100</Text>
-      <Text style={styles.q1}>Q1</Text>
       <View style={styles.back}></View>
       <View style={styles.statusBar}>
-
-        {showCorrect && <Answer word="correct" />}
-
-        {showInCorrect && <Answer word="incorrect" />}
-
-
-
-      <TouchableOpacity style={styles.btn1} onPress={correct(0)}>
-        <Text style={styles.hard}>variable[0].choices[0]</Text>
-      </TouchableOpacity>       
-      <TouchableOpacity style={styles.btn2} onPress={correct(1)}>
-        <Text style={styles.hard}>variable[0].choices[1]</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.btn3} onPress={correct(2)}>
-        <Text style={styles.hard}>variable[0].choices[2]</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.btn4} onPress={correct(3)}>
-        <Text style={styles.hard}>variable[0].choices[3]</Text>
-      </TouchableOpacity>
       </View>
       </div>
     </View>
@@ -197,6 +160,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: '#2a2b2a',
     fontSize: 15,
+    top:100,
     fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
 },
   textBlock3: {
@@ -367,4 +331,4 @@ rectangle4: {
   },
 });
 
-export default Quiz;
+export default Answer;

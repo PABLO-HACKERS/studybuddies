@@ -3,9 +3,14 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import * as Font from 'expo-font';
 import Backyard from './backyard';
 import OpenClass from './openclass';
+import BuddyShop from './buddyshop';
 
 
 const ClassPage = () => {
+
+    let balance = 10;
+    let streak = 2;
+    let showPet = false;
 
     module.exports = {
         assets: ['./assets/fonts'],
@@ -14,6 +19,11 @@ const ClassPage = () => {
     const [fontLoaded, setFontLoaded] = useState(false);
     const [showBackyard, setShowBackyard] = useState(false);
     const [showClass, setShowClass] = useState(false);
+    const [showShop, setShowShop] = useState(false);
+
+    const handleShop = () => {
+        setShowShop(true);
+    }
 
     const handlePress = () => {
         setShowBackyard(!showBackyard);
@@ -26,6 +36,7 @@ const ClassPage = () => {
     const mainScreen = () => {
         setShowClass(false);
         setShowBackyard(false);
+        setShowShop(false);
     };
 
 
@@ -48,11 +59,18 @@ const ClassPage = () => {
     <View style={[styles.root]}>
 
       
+      <TouchableOpacity style={styles.shopbutton} onPress={handleShop}> 
+
+      </TouchableOpacity>
+
+      {showShop && <BuddyShop 
+        balance={balance}
+      />}
 
       {showClass && <OpenClass />}
 
     
-      {(showBackyard || showClass ) &&
+      {(showBackyard || showClass || showShop) &&
       <TouchableOpacity style={styles.backicon} onPress={mainScreen}>
       </TouchableOpacity>}
 
@@ -64,7 +82,11 @@ const ClassPage = () => {
         <Text style={styles.visitYourBuddies}>Visit Your Buddies</Text>
       </TouchableOpacity>
 
-      {showBackyard && <Backyard />}
+      {showBackyard && <Backyard 
+        balance={balance}
+        streak={streak}
+        showPet={showPet}
+      />}
 
       <View style={styles.ellipse1}>
         <Text style={styles.plus}>+</Text>
@@ -154,6 +176,18 @@ const styles = StyleSheet.create({
       borderRadius: 32,
       backgroundColor: '#d7d7d7',
       overflow: 'hidden',
+    },
+    shopbutton: {
+        position: 'absolute',
+        left: 30,
+        top: 30,
+        width: 64,
+        height: 64,
+        backgroundImage: 'url("assets/cart.png")',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+
     },
     pixilFrame31: {
         position: 'absolute',

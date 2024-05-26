@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Backyard = () => {
+const Backyard = ({balance, streak, showPet}) => {
   return (
     <View style={{zIndex: '1000000', position: 'relative'}}>
       <View style={styles._1431605648965_shop_thumb1}></View>
@@ -16,7 +16,7 @@ const Backyard = () => {
         <Text style={styles.textBlock2}></Text>
       </View>
       <View style={styles._10x}>
-        <Text style={styles.textBlock3}>10x</Text>
+        <Text style={styles.textBlock3}>{streak}x</Text>
         <View style={styles.textBlock4}></View>
       </View>
         <View style={styles.rectangle23}></View>
@@ -33,7 +33,7 @@ const Backyard = () => {
         <Text style={styles.textBlock8}>Buddycoinz</Text>
         <View style={styles.textBlock9}></View>
       </View>
-      <Text style={styles._150x}>150x</Text>
+      <Text style={styles._150x}>{balance}x</Text>
       <View style={styles.pixilFrame41}></View>
       <View style={styles.StudentSBackyard}>
         <Text style={styles.textBlock10}>[Student’s]</Text>
@@ -45,6 +45,9 @@ const Backyard = () => {
           <View style={styles.time}></View>
         </View>
       </View>
+
+      {showPet && <View style={styles.pixilFrame290}></View>}
+
       <View style={styles.pixilFrame2}></View>
       <View style={styles.pixilFrame12}></View>
       <View style={styles.pixilFrame13}></View>
@@ -353,6 +356,18 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: '146px',
         top: '187px',
+        width: '64px',
+        height: '64px',
+        backgroundImage: 'url("assets/cat.png")',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      },
+
+      pixilFrame290: {
+        position: 'absolute',
+        left: '176px',
+        top: '207px',
         width: '64px',
         height: '64px',
         backgroundImage: 'url("assets/cat.png")',

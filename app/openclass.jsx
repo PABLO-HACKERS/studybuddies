@@ -198,6 +198,9 @@ const styles = StyleSheet.create({
     outlineOffset: -1,
     borderRadius: 24,
     backgroundColor: '#e4e4e4',
+    fontFamily: 'Manrope, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif',
+    padding: 20,
+    
   },
   typeHere: {
     color: '#2a2b2a',
@@ -217,7 +220,7 @@ const styles = StyleSheet.create({
     top: 128,
     width: 64,
     height: 64,
-    backgroundImage: 'url("assets/pixilFrame1.png")',
+    backgroundImage: 'url("assets/cat.png")',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
