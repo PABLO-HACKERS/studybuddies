@@ -116,7 +116,7 @@ const ClassPage = () => {
         <Text style={styles.textBlock}>New Class</Text>
       </View>
       <View style={styles.rectangle282}></View>
-      <Text style={styles.eCE369}>ECE 369</Text>
+      <Text style={styles.eCE369}>SENG 440</Text>
       <View style={styles.pixilFrame31}></View>
       <View style={styles.drMihaiSima}>
         <Text style={styles.textBlock3}>Dr. Mihai Sima</Text>
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
         top: 30,
         width: 64,
         height: 64,
-        backgroundImage: 'url("assets/cart.png")',
+        backgroundImage: 'url("assets/shop.png")',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -360,11 +360,16 @@ const styles = StyleSheet.create({
       backgroundSize: 'cover',
     },
     drTreforBazett: {
-      opacity: 0.6,
-      position: 'absolute',
-      left: 60,
-      top: 341,
-      flexDirection: 'column',
+        opacity: 0.6,
+        color: '#000',
+        fontSize: 12,
+        fontWeight: 500,
+        fontFamily: 'Manrope, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+        position: 'absolute',
+        left: 60,
+        top: 342,
+        whiteSpace: 'nowrap',
+        flexDirection: 'column',
     },
     plus: {
         color: 'black',
@@ -440,16 +445,16 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
     },
     drMihaiSima: {
-      opacity: 0.6,
-      color: '#000',
-      fontSize: 12,
-      fontWeight: 500,
-      fontFamily: 'Manrope, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
-      position: 'absolute',
-      left: 59,
-      top: 548,
-      whiteSpace: 'nowrap',
-      flexDirection: 'column',
+        opacity: 0.6,
+        color: '#000',
+        fontSize: 12,
+        fontWeight: 500,
+        fontFamily: 'Manrope, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+        position: 'absolute',
+        left: 64,
+        top: 548,
+        whiteSpace: 'nowrap',
+        flexDirection: 'column',
     },
     rectangle28: {
       position: 'absolute',
