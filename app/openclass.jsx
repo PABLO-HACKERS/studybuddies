@@ -9,13 +9,17 @@ const OpenClass = () => {
   let diff = 1;
 
   const [showQuestions, setShowQuestion] = useState(false);
+  const [text, setText] = useState('');
+
 
   const startQuiz = () => {
     setShowQuestion(true);
+
 };
   const difficulty = (difficulty) => {
     diff = difficulty
   }
+
   return (
     <View style={{zIndex:"10000"}}>
       <div style={{height:1000, width:844, position: 'absolute', backgroundColor: '#d7d7d7'}}></div>
@@ -28,7 +32,10 @@ const OpenClass = () => {
         <Text style={styles.submit}>Submit</Text>
       </TouchableOpacity>
 
-      {showQuestions && (getQuestions(diff, prompt) && <Quiz />)}
+      {showQuestions && ( <Quiz 
+       diff={diff}
+       topic = {text}
+      />)}
 
 
       <TouchableOpacity style={styles.btn2} onClick={difficulty(2)}>
@@ -42,7 +49,12 @@ const OpenClass = () => {
       </TouchableOpacity>
 
     
-      <TextInput className="prompt" style={styles.rectangle28}></TextInput>
+      <TextInput className="prompt" style={styles.rectangle28}
+
+      placeholder="What would you like to study?"
+      value={text}
+      onChangeText={(newText) => setText(newText)} // Update state with new text input value
+      ></TextInput>
       <View style={styles.pixilFrame1}></View>
 
 

@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-web';
 import Answer from './answer.jsx'
 import { getQuestions } from './index.js';
 
-const Quiz = () => {
+const Quiz = ({diff, topic}) => {
 
     const [showCorrect, setShowCorrect] = useState(false);
     const [showInCorrect, setShowInCorrect] = useState(false);
@@ -20,7 +20,7 @@ const Quiz = () => {
   }
 
 
-  {let variable = getQuestions();}
+  {let variable = getQuestions(diff,topic);}
 
   return (
     <View style={{zIndex:"15000"}}>

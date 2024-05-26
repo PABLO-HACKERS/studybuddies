@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
         top: 30,
         width: 64,
         height: 64,
-        backgroundImage: 'url("assets/cart.png")',
+        backgroundImage: 'url("assets/shop.png")',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
