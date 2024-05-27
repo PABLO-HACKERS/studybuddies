@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Quiz from './quiz';
 import { TextInput } from 'react-native-web';
 import { getQuestions } from './index.js';
+import Splash from './Splash';
 
 const OpenClass = () => {
 
@@ -32,7 +33,7 @@ const OpenClass = () => {
         <Text style={styles.submit}>Submit</Text>
       </TouchableOpacity>
 
-      {showQuestions && ( <Quiz 
+      {showQuestions && ( <Splash 
        diff={diff}
        topic = {text}
       />)}

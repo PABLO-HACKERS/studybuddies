@@ -41,10 +41,5 @@ export async function getQuestions(diff, prompt) {
   console.log(response);
 
 
-  response.questions.forEach((q, index) => {
-    var question = q.question;
-    var options = [];
-    q.options.forEach((option) => options.push(option));
-    var correct_answer = q.correct_answer;
-  });
+  return response;
 }

@@ -4,6 +4,7 @@ import * as Font from 'expo-font';
 import Backyard from './backyard';
 import OpenClass from './openclass';
 import BuddyShop from './buddyshop';
+import Splash from './Splash';
 
 
 const ClassPage = () => {
@@ -20,10 +21,15 @@ const ClassPage = () => {
     const [showBackyard, setShowBackyard] = useState(false);
     const [showClass, setShowClass] = useState(false);
     const [showShop, setShowShop] = useState(false);
+    const [showSplash, setShowSplash] = useState(false);
+
 
     const handleShop = () => {
         setShowShop(true);
     }
+    const handleSplash = () => {
+      setShowSplash(true);
+  }
 
     const handlePress = () => {
         setShowBackyard(!showBackyard);
@@ -87,7 +93,7 @@ const ClassPage = () => {
         streak={streak}
         showPet={showPet}
       />}
-
+    
       <View style={styles.ellipse1}>
         <Text style={styles.plus}>+</Text>
       </View>
@@ -122,7 +128,11 @@ const ClassPage = () => {
         <Text style={styles.textBlock3}>Dr. Mihai Sima</Text>
         <Text style={styles.textBlock4}></Text>
       </View>
+      <TouchableOpacity>
+
       <View style={styles.rectangle283}></View>
+      
+      </TouchableOpacity>
       <Text style={styles.cHEM101}>CHEM 101</Text>
       <View style={styles.pixilFrame11}></View>
       <Text style={styles.drAlexBrolo}>Dr. Alex Brolo</Text>
