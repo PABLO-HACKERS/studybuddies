@@ -1,4 +1,4 @@
-import React, { useEffect, useState, memo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import * as Font from 'expo-font';
 import Backyard from './backyard';
@@ -21,19 +21,19 @@ const ClassPage = () => {
     const [showClass, setShowClass] = useState(false);
     const [showShop, setShowShop] = useState(false);
 
-    const handleShop = () => {
+    const openShop = () => {
         setShowShop(true);
     }
 
-    const handlePress = () => {
+    const openBackyard = () => {
         setShowBackyard(!showBackyard);
     };
 
-    const handleClassPress = () => {
+    const openClass = () => {
         setShowClass(true);
     };
 
-    const mainScreen = () => {
+    const homeScreen = () => {
         setShowClass(false);
         setShowBackyard(false);
         setShowShop(false);
@@ -44,6 +44,8 @@ const ClassPage = () => {
         async function loadFont() {
         await Font.loadAsync({
             'pixelfont': require('../assets/fonts/PressStart2P-Regular.ttf'),
+            'Roboto': require('../assets/fonts/Roboto-Regular.ttf'),
+            'RobotoMed': require('../assets/fonts/Roboto-Medium.ttf')
         });
         setFontLoaded(true);
         }
@@ -56,112 +58,86 @@ const ClassPage = () => {
     }
 
     return (
-    <View style={[styles.root]}>
 
-      
-      <TouchableOpacity style={styles.shopbutton} onPress={handleShop}> 
+        <View style={[styles.root]}>
 
-      </TouchableOpacity>
+            <Text style={styles.classes}>Classes</Text>
+            
+            <TouchableOpacity 
+                style={styles.shopbutton} onPress={openShop}> 
+            </TouchableOpacity>
 
-      {showShop && <BuddyShop 
-        balance={balance}
-      />}
+            {showShop && <BuddyShop 
+                balance={balance}
+            />}
 
-      {showClass && <OpenClass />}
+            <TouchableOpacity style={styles.btn} onPress={openBackyard}>
+                <Text style={styles.visitYourBuddies}>Visit Your Buddies</Text>
+            </TouchableOpacity>
 
-    
-      {(showBackyard || showClass || showShop) &&
-      <TouchableOpacity style={styles.backicon} onPress={mainScreen}>
-      </TouchableOpacity>}
+            {showBackyard && <Backyard 
+                balance={balance}
+                streak={streak}
+                showPet={showPet}
+            />}
+            
+            {showClass && <OpenClass />}
 
-      <View style={styles.homeIndicator}>
-        <View style={styles.homeIndicator2}></View>
-      </View>
+            
+            {(showBackyard || showClass || showShop) &&
+            <TouchableOpacity style={styles.backicon} onPress={homeScreen}></TouchableOpacity>}
 
-      <TouchableOpacity style={styles.btn} onPress={handlePress}>
-        <Text style={styles.visitYourBuddies}>Visit Your Buddies</Text>
-      </TouchableOpacity>
+            <View style={styles.logo}></View>
 
-      {showBackyard && <Backyard 
-        balance={balance}
-        streak={streak}
-        showPet={showPet}
-      />}
-
-      <View style={styles.ellipse1}>
-        <Text style={styles.plus}>+</Text>
-      </View>
-
-      <View style={styles.pixelFrame11}></View>
-      <View style={styles.pixelFrame1}></View>
+            
 
 
-      <View style={{
-        zIndex: "20000",
-        position: 'absolute',
-        left: 300,
-        top: 30,
-        width: 64,
-        height: 64,
-        backgroundImage: 'url("assets/logo.png")',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
+            <View style={
+                [styles.class, {
+                left: 20,
+                top: 401,}]}
+            >
+                <Text style={styles.nameofclass}>SENG 440</Text>
+                <Text style={styles.nameofteacher}>Dr. Mihai Sima</Text>
+                <View style={[styles.classimage,, {backgroundImage: 'url("assets/monkey.png")',}]}></View>
+
+            </View>
+
+            <View style={
+                [styles.class, {
+                left: 201,
+                top: 194,}]}
+            >
+                <Text style={styles.nameofclass}>CHEM 101</Text>
+                <Text style={styles.nameofteacher}>Dr. Alex Brolo</Text>
+                <View style={[styles.classimage,, {backgroundImage: 'url("assets/dog.png")',}]}></View>
+
+            </View>
+
+            <TouchableOpacity onPress={openClass}>
+                <View style={
+                    [styles.class, {
+                    left: 20,
+                    top: 194,}]}
+                >
+                    <Text style={styles.nameofclass}>MATH 100</Text>
+                    <Text style={styles.nameofteacher}>Dr. Treffor Bazett</Text>
+                    <View style={[styles.classimage,, {backgroundImage: 'url("assets/cat.png")',}]}></View>
+
+                </View>
+            </TouchableOpacity>
+            
+            
+
+            <View style={styles.createclass}>
+                <Text style={styles.nameofclass}>New Class</Text>
+                <View style={[styles.classimage, {backgroundImage: 'url("assets/plus.png")', top: 35}]}></View>
+        
+            </View>
 
         
-      }}></View>
-
-      <View style={styles.rectangle28}></View>
-      <View style={styles.newClass}>
-        <Text style={styles.textBlock}>New Class</Text>
-      </View>
-      <View style={styles.rectangle282}></View>
-      <Text style={styles.eCE369}>SENG 440</Text>
-      <View style={styles.pixilFrame31}></View>
-      <View style={styles.drMihaiSima}>
-        <Text style={styles.textBlock3}>Dr. Mihai Sima</Text>
-        <Text style={styles.textBlock4}></Text>
-      </View>
-      <View style={styles.rectangle283}></View>
-      <Text style={styles.cHEM101}>CHEM 101</Text>
-      <View style={styles.pixilFrame11}></View>
-      <Text style={styles.drAlexBrolo}>Dr. Alex Brolo</Text>
-        
-      <TouchableOpacity onPress={handleClassPress}>
-      <View style={styles.pixelFrame31}></View>
-
-      <View style={styles.rectangle284} ></View>
-
-      </TouchableOpacity>
-      
-
-
-      <Text style={styles.mATH100}>MATH 100</Text>
-      <View style={styles.pixilFrame1}></View>
-      <Text style={styles.drTreforBazett}>Dr. Trefor Bazett</Text>
-      <Text style={styles.classes}>Classes</Text>
-      <TouchableOpacity style={styles.back}>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.back2}>
-      </TouchableOpacity>
-      <View style={styles.statusBar}>
-        <View style={styles.iPhoneXOrNewer}>
-          <View style={styles.rightSide}>
-          </View>
-          <View style={styles.time}>
-          </View>
         </View>
-      </View>
-      {/*
-      <TouchableOpacity style={styles.menuButton}>
-        <View style={styles.rectangle}></View>
-        <View style={styles.rectangle3}></View>
-        <View style={styles.rectangle4}></View>
-        <View style={styles.rectangle5}></View>
-      </TouchableOpacity>
-      */}
-    </View>
-  );
+    );
 };
   
 
@@ -177,6 +153,20 @@ const styles = StyleSheet.create({
       backgroundColor: '#d7d7d7',
       overflow: 'hidden',
     },
+
+    logo: {
+        zIndex: "20000",
+        position: 'absolute',
+        left: 300,
+        top: 30,
+        width: 64,
+        height: 64,
+        backgroundImage: 'url("assets/logo.png")',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',    
+    },
+
     shopbutton: {
         position: 'absolute',
         left: 30,
@@ -187,136 +177,32 @@ const styles = StyleSheet.create({
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-
     },
-    pixilFrame31: {
-        position: 'absolute',
-        left: 71,
-        top: 437,
+
+    nameofclass: {
+        color: 'black',
+        fontSize: 13,
+        fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+        whiteSpace: 'nowrap',
+        top:125
+    },
+
+    nameofteacher: {
+        color: '#2a2b2a',
+        fontSize: 7,
+        fontFamily: 'pixelfont',
+        top:135,
+    },
+
+    classimage: {
         width: 68,
         height: 68,
-        backgroundImage: 'url("assets/monkey.png")',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-      },
-      
-      
-      pixilFrame11: {
-        position: 'absolute',
-        left: 254,
-        top: 238,
-        width: 68,
-        height: 68,
-        backgroundImage: 'url("assets/dog.png")',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-      },
-
-      pixilFrame1: {
-        position: 'absolute',
-        left: 73,
-        top: 238,
-        width: 64,
-        height: 64,
-        backgroundImage: 'url("assets/cat.png")',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-      },
-      
-    statusBar: {
-      position: 'absolute',
-      left: 0,
-      top: 0,
-      width: 390,
-      height: 44,
-      flexDirection: 'column',
-      alignItems: 'flex-start',
+        top: 23
     },
-    time: {
-      position: 'absolute',
-      left: 21,
-      top: 12,
-      width: 54,
-      height: 21,
-      overflow: 'visible',
-    },
-    icon5: {
-      width: '100%',
-      height: '100%',
-    },
-    rightSide: {
-      position: 'absolute',
-      left: 308.6667,
-      top: 17.3307,
-      width: 66.6614,
-      height: 11.336,
-      overflow: 'visible',
-    },
-    icon4: {
-      width: '100%',
-      height: '100%',
-    },
-    iPhoneXOrNewer: {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0,
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-      overflow: 'hidden',
-    },
-    menuButton: {
-      position: 'absolute',
-      left: 23,
-      top: 53,
-      width: 48,
-      height: 48,
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-      borderRadius: 4,
-      backgroundColor: '#8acb88b2',
-      overflow: 'hidden',
-    },
-    rectangle: {
-      position: 'absolute',
-      left: '50%',
-      top: 34.4,
-      width: 28,
-      height: 3.2,
-      backgroundColor: '#000',
-      transform: [{ translateX: -50 }],
-    },
-    rectangle3: {
-      position: 'absolute',
-      left: '50%',
-      top: 26.4,
-      width: 28,
-      height: 3.2,
-      backgroundColor: '#000',
-      transform: [{ translateX: -50 }],
-    },
-    rectangle4: {
-      position: 'absolute',
-      left: '50%',
-      top: 18.4,
-      width: 28,
-      height: 3.2,
-      backgroundColor: '#000',
-      transform: [{ translateX: -50 }],
-    },
-    rectangle5: {
-      position: 'absolute',
-      left: '50%',
-      top: 10.4,
-      width: 28,
-      height: 3.2,
-      backgroundColor: '#000',
-      transform: [{ translateX: -50 }],
-    },
+    
     classes: {
       color: '#2a2b2a',
       fontSize: 40,
@@ -327,136 +213,19 @@ const styles = StyleSheet.create({
       whiteSpace: 'nowrap',
       flexDirection: 'column',
     },
-    rectangle284: {
-      position: 'absolute',
-      left: 20,
-      top: 194,
-      width: 169,
-      height: 186,
+
+    class: {
       outline: 'solid 1px #282424',
-      outlineOffset: '-1px',
-      borderRadius: 24,
       backgroundColor: '#e4e4e4',
       borderWidth: 2,
-
-    },
-    mATH100: {
-      color: '#000',
-      fontSize: 13,
-      lineHeight: 24,
-      fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
-      position: 'absolute',
-      left: 53,
-      top: 317,
-      whiteSpace: 'nowrap',
-      flexDirection: 'column',
-    },
-    pixilFrame: {
-      position: 'absolute',
-      width: 68,
-      height: 68,
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-    },
-    drTreforBazett: {
-        opacity: 0.6,
-        color: '#000',
-        fontSize: 12,
-        fontWeight: 500,
-        fontFamily: 'Manrope, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
-        position: 'absolute',
-        left: 60,
-        top: 342,
-        whiteSpace: 'nowrap',
-        flexDirection: 'column',
-    },
-    plus: {
-        color: 'black',
-        fontSize: '40px',
-        fontWight: 'bolder',
-        position: 'absolute',
-        left:'8px',
-        top: '-7px'
-
-    },
-    textBlock3: {
-      color: '#000',
-      fontSize: 12,
-      fontWeight: 500,
-      fontFamily: 'Manrope, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
-    },
-    rectangle283: {
-      position: 'absolute',
-      left: 201,
-      top: 194,
+      borderRadius: 24,
       width: 169,
       height: 186,
-      outline: 'solid 1px #282424',
-      outlineOffset: '-1px',
-      borderRadius: 24,
-      backgroundColor: '#e4e4e4',
-      borderWidth: 2
+      alignItems: 'center',
+      position: 'absolute'    
     },
-    cHEM101: {
-      color: '#000',
-      fontSize: 13,
-      lineHeight: 24,
-      fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
-      position: 'absolute',
-      left: 234,
-      top: 317,
-      whiteSpace: 'nowrap',
-      flexDirection: 'column',
-    },
-    drAlexBrolo: {
-      opacity: 0.6,
-      color: '#000',
-      fontSize: 12,
-      fontWeight: 500,
-      fontFamily: 'Manrope, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
-      position: 'absolute',
-      left: 249,
-      top: 341,
-      whiteSpace: 'nowrap',
-      flexDirection: 'column',
-    },
-    rectangle282: {
-      position: 'absolute',
-      left: 20,
-      top: 401,
-      width: 169,
-      height: 186,
-      outline: 'solid 1px #282424',
-      outlineOffset: '-1px',
-      borderRadius: 24,
-      backgroundColor: '#e4e4e4',
-      borderWidth: 2,
-    },
-    eCE369: {
-      color: '#000',
-      fontSize: 13,
-      lineHeight: 24,
-      fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
-      position: 'absolute',
-      left: 53,
-      top: 524,
-      whiteSpace: 'nowrap',
-      flexDirection: 'column',
-    },
-    drMihaiSima: {
-        opacity: 0.6,
-        color: '#000',
-        fontSize: 12,
-        fontWeight: 500,
-        fontFamily: 'Manrope, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
-        position: 'absolute',
-        left: 64,
-        top: 548,
-        whiteSpace: 'nowrap',
-        flexDirection: 'column',
-    },
-    rectangle28: {
+    
+    createclass: {
       position: 'absolute',
       left: 201,
       top: 401,
@@ -465,48 +234,10 @@ const styles = StyleSheet.create({
       border: '2px dotted black',
       outlineOffset: '-1px',
       borderRadius: 24,
+      alignItems: 'center',
     },
-    newClass: {
-      position: 'absolute',
-      left: 230,
-      top: 525,
-      flexDirection: 'column',
 
-    },
-    textBlock: {
-      color: '#000',
-      fontSize: 13,
-      lineHeight: 24,
-      fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
-    },
     
-    ellipse1: {
-      position: 'absolute',
-      left: 263,
-      top: 463,
-      width: 48,
-      height: 48,
-      borderRadius: 24,
-      zIndex: 10,
-      borderWidth:2,
-      
-    },
-    rectangle1: {
-      position: 'absolute',
-      left: 21,
-      top: 10,
-      width: 6,
-      height: 28,
-      backgroundColor: '#000',
-    },
-    rectangle2: {
-      position: 'absolute',
-      left: 29,
-      top: 10,
-      width: 6,
-      height: 28,
-      backgroundColor: '#000',
-    },
     btn: {
       position: 'absolute',
       left: 17,
@@ -531,6 +262,7 @@ const styles = StyleSheet.create({
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
     },
+
     visitYourBuddies: {
       color: '#2a2b2a',
       fontSize: 15,
@@ -538,41 +270,7 @@ const styles = StyleSheet.create({
       fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
 
     },
-    homeIndicator: {
-      position: 'absolute',
-      left: 120,
-      top: 824,
-      width: 134,
-      height: 5,
-      backgroundColor: '#000',
-      borderRadius: 2.5,
-    },
-    homeIndicator2: {
-      width: '100%',
-      height: '100%',
-    },
-    back: {
-      position: 'absolute',
-      left: 63,
-      top: 52,
-      width: 48,
-      height: 48,
-    },
-    icon2: {
-      width: '100%',
-      height: '100%',
-    },
-    back2: {
-      position: 'absolute',
-      left: 122,
-      top: 52,
-      width: 48,
-      height: 48,
-    },
-    icon3: {
-      width: '100%',
-      height: '100%',
-    },
+    
   });
   
 export default ClassPage;

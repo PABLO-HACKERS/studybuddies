@@ -2,3 +2,13 @@
     font-family: 'pixelfont';
     src: url(./fonts/Press2P-Regular.ttf) format('truetype');
 }
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(./fonts/Roboto-Regular.tff) format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoMed';
+    src: url(./fonts/Roboto-Medium.tff) format('truetype');
+}
