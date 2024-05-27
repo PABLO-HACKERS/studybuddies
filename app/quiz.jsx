@@ -4,33 +4,44 @@ import { StyleSheet } from 'react-native-web';
 import Answer from './answer.jsx'
 import { getQuestions } from './index.js';
 
-const Quiz = () => {
+const Quiz = ({variable}) => {
 
-    const [showCorrect, setShowCorrect] = useState(false);
-    const [showInCorrect, setShowInCorrect] = useState(false);
-
+  const [showCorrect, setShowCorrect] = useState(false);
+  const [showInCorrect, setShowInCorrect] = useState(false);
+  const [showNext, setShowNext] = useState(false);
+  const [questionNum, setQuestionNum] = useState(0); // Define questionNum state
+  const [right, setRight] = useState(0);
 
   const correct = (num) => {
-    if(variable[0].correctAnswer == variable[0].choices[num]) {
+    if (variable.questions[questionNum].correct_answer === variable.questions[questionNum].options[num]) {
         setShowCorrect(true);
+        setRight(prevNum =>prevNum + 1);
+    } else {
+        setShowInCorrect(true);
     }
-    else {
-        setShowInCorrect(true)
-    }
-  }
+    setQuestionNum(prevNum => {
+      // Check if the incremented value is greater than or equal to 3
+      if (prevNum + 1 >= 3) {
+        setShowNext(true);
+        return prevNum;
+      }else{
+      // Return the updated value of questionNum
+      return prevNum + 1;
+      }
+    });
+    
+};
 
-
-  {let variable = getQuestions();}
 
   return (
-    <View style={{zIndex:"15000"}}>
+    <View style={{zIndex:18000}}>
     <div style={{height:1000, width:844, position: 'absolute', backgroundColor: '#d7d7d7'}}>
       <View style={styles.homeIndicator}>
         <View style={styles.homeIndicator2}></View>
       </View>
       <View style={styles.findTheDerivativeOfTheFunction}>
         <Text style={styles.textBlock}></Text>
-        <Text style={styles.textBlock3}>variable[0].question</Text>
+        <Text style={styles.textBlock3}>{variable.questions[questionNum].question}</Text>
       </View>
       <View style={styles.pixilFrame1}></View>
       <Text style={styles.mATH100}>MATH 100</Text>
@@ -38,24 +49,26 @@ const Quiz = () => {
       <View style={styles.back}></View>
       <View style={styles.statusBar}>
 
-        {showCorrect && <Answer word="correct" />}
+        {showCorrect && showNext&& <Answer word="correct" score  ={right/3.0 * 100.0} />}
 
-        {showInCorrect && <Answer word="incorrect" />}
+        {showInCorrect && showNext &&<Answer word="incorrect" score  ={right/3.0 * 100.0}/>}
 
 
 
-      <TouchableOpacity style={styles.btn1} onPress={correct(0)}>
-        <Text style={styles.hard}>variable[0].choices[0]</Text>
-      </TouchableOpacity>       
-      <TouchableOpacity style={styles.btn2} onPress={correct(1)}>
-        <Text style={styles.hard}>variable[0].choices[1]</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.btn3} onPress={correct(2)}>
-        <Text style={styles.hard}>variable[0].choices[2]</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.btn4} onPress={correct(3)}>
-        <Text style={styles.hard}>variable[0].choices[3]</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.btn1} onPress={() => correct(0)}>
+        <Text style={styles.hard}>{variable.questions[questionNum].options[0]}</Text>
+          </TouchableOpacity>       
+<TouchableOpacity style={styles.btn2} onPress={() => correct(1)}>
+<Text style={styles.hard}>{variable.questions[questionNum].options[1]}</Text>
+
+ 
+</TouchableOpacity>
+<TouchableOpacity style={styles.btn3} onPress={() => correct(2)}>
+  <Text style={styles.hard}>{variable.questions[questionNum].options[2]}</Text>
+</TouchableOpacity>
+<TouchableOpacity style={styles.btn4} onPress={() => correct(3)}>
+  <Text style={styles.hard}>{variable.questions[questionNum].options[3]}</Text>
+</TouchableOpacity>
       </View>
       </div>
     </View>

@@ -4,6 +4,7 @@ import * as Font from 'expo-font';
 import Backyard from './backyard';
 import OpenClass from './openclass';
 import BuddyShop from './buddyshop';
+import Splash from './Splash';
 
 
 const ClassPage = () => {
@@ -20,10 +21,15 @@ const ClassPage = () => {
     const [showBackyard, setShowBackyard] = useState(false);
     const [showClass, setShowClass] = useState(false);
     const [showShop, setShowShop] = useState(false);
+    const [showSplash, setShowSplash] = useState(false);
+
 
     const openShop = () => {
         setShowShop(true);
     }
+    const handleSplash = () => {
+      setShowSplash(true);
+  }
 
     const openBackyard = () => {
         setShowBackyard(!showBackyard);

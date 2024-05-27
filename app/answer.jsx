@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { StyleSheet } from 'react-native-web';
 
-const Answer = ({word}) => {
+const Answer = ({word, score}) => {
 
   return (
     <View style={{zIndex:"16000"}}>
@@ -12,7 +12,7 @@ const Answer = ({word}) => {
       </View>
       <View style={styles.findTheDerivativeOfTheFunction}>
         <Text style={styles.textBlock}>Answer is {word}!</Text>
-        <Text style={styles.textBlock2}>Quiz is now over</Text>
+        <Text style={styles.textBlock2}>Quiz score is {score}</Text>
 
       </View>
       <View style={styles.pixilFrame1}></View>
