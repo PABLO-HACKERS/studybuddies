@@ -1,5 +1,5 @@
-![](https://github.com/nicksimache/images/blob/main/github1.png)
-![](https://github.com/nicksimache/images/blob/main/github2.png)
+![](https://github.com/PABLO-HACKERS/studybuddies/blob/main/readmeimages/github1.png)
+![](https://github.com/PABLO-HACKERS/studybuddies/blob/main/readmeimages/github2.png)
 
 ## Studybuddies 🐾
 
