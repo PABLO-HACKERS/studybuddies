@@ -22,7 +22,7 @@ const OpenClass = () => {
   }
 
   return (
-    <View style={{zIndex:"10000"}}>
+    <View style={{zIndex:2}}>
       <div style={{height:1000, width:844, position: 'absolute', backgroundColor: '#d7d7d7'}}></div>
       <View style={styles.homeIndicator}>
         <View style={styles.homeIndicator2}></View>

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-web';
 
-const BuddyShop = ({balance, showPet}) => {
+const BuddyShop = ({balance}) => {
   return (
 
-    <View style={{zIndex:"10000"}}>
-    <div style={{height:1000, width:844, position: 'absolute', backgroundColor: '#d7d7d7'}}></div>
+    <View style={{zIndex:"2"}}>
+    <View style={{height:1000, width:844, position: 'absolute', backgroundColor: '#d7d7d7'}}></View>
       <View style={styles.homeIndicator}>
         <View style={styles.homeIndicator2}></View>
       </View>

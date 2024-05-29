@@ -62,7 +62,7 @@ const ClassPage = () => {
 
         <View style={[styles.root]}>
 
-            <Text style={styles.classes}>Classes</Text>
+            <Text style={styles.titletext}>Classes</Text>
             
             <TouchableOpacity 
                 style={styles.shopbutton} onPress={openShop}> 
@@ -79,7 +79,7 @@ const ClassPage = () => {
             {showBackyard && <Backyard 
                 balance={balance}
                 streak={streak}
-                showPet={showPet}
+                stylesheet={styles}
             />}
             
             {showClass && <OpenClass />}
@@ -111,7 +111,7 @@ const ClassPage = () => {
             >
                 <Text style={styles.nameofclass}>CHEM 101</Text>
                 <Text style={styles.nameofteacher}>Dr. Alex Brolo</Text>
-                <View style={[styles.classimage,, {backgroundImage: 'url("assets/dog.png")',}]}></View>
+                <View style={[styles.classimage, {backgroundImage: 'url("assets/dog.png")',}]}></View>
 
             </View>
 
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     },
 
     logo: {
-        zIndex: "20000",
+        zIndex: "10",
         position: 'absolute',
         left: 300,
         top: 30,
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
         top: 23
     },
     
-    classes: {
+    titletext: {
       color: '#2a2b2a',
       fontSize: 40,
       fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
 
     backicon: {
         position: 'absolute',
-        zIndex: '100000000',
+        zIndex: '100',
         left: '20px',
         top: '80px',
         width: '16px',

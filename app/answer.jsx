@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native-web';
 const Answer = ({word, score}) => {
 
   return (
-    <View style={{zIndex:"16000"}}>
+    <View style={{zIndex:6}}>
     <div style={{height:1000, width:844, position: 'absolute', backgroundColor: '#d7d7d7'}}>
       <View style={styles.homeIndicator}>
         <View style={styles.homeIndicator2}></View>
