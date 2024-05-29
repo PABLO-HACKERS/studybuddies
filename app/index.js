@@ -31,7 +31,7 @@ export async function getQuestions(diff, prompt) {
           " Make the questions " +
           difficulty +
           " level of difficulty" +
-          ". Format the output as a json object with keys question, options and correct_answer inside a key of questions with an array of questions",
+          ". Format the output as a json object with keys question, options(as an array 0-3) and correct_answer(should be the index of the option) inside a key of questions with an array of questions",
       },
     ],
   });

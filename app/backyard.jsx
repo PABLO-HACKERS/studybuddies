@@ -1,14 +1,27 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Backyard = ({balance, streak, showPet}) => {
+const Backyard = ({balance, streak, stylesheet}) => {
   return (
-    <View style={{zIndex: '1000000', position: 'relative'}}>
-      <View style={styles._1431605648965_shop_thumb1}></View>
-      <View style={styles._1431605648965_shop_thumb2}></View>
-      <View style={styles.homeIndicator}>
-        <View style={styles.homeIndicator2}></View>
+    <View style={{zIndex: 20, position: 'relative'}}>
+
+      <View style={[
+        styles.background, 
+        {left: '-64px',
+        top: '-2px'}]}
+      ></View>
+
+      <View style={[
+        styles.background, 
+        {left: '-58px',
+        top: '491px',}]}
+      ></View>
+      
+      <View style={[styles.backyardtitle, {zIndex: 3}]}>
+        <Text style={styles.titletext}>[Student's]</Text>
+        <Text style={[styles.titletext, {marginTop: 0}]}>Backyard</Text>
       </View>
+
       <View style={styles.rectangle26}></View>
       <View style={styles.pixilFrame51}></View>
       <View style={styles.bestQuestionStreak}>
@@ -35,10 +48,6 @@ const Backyard = ({balance, streak, showPet}) => {
       </View>
       <Text style={styles._150x}>{balance}x</Text>
       <View style={styles.pixilFrame41}></View>
-      <View style={styles.StudentSBackyard}>
-        <Text style={styles.textBlock10}>[Student’s]</Text>
-        <Text style={styles.textBlock11}>Backyard</Text>
-      </View>
       <View style={styles.statusBar}>
         <View style={styles.iPhoneXOrNewer}>
           <View style={styles.rightSide}></View>
@@ -46,7 +55,6 @@ const Backyard = ({balance, streak, showPet}) => {
         </View>
       </View>
 
-      {showPet && <View style={styles.pixilFrame290}></View>}
 
       <View style={styles.pixilFrame2}></View>
       <View style={styles.pixilFrame12}></View>
@@ -60,10 +68,9 @@ const Backyard = ({balance, streak, showPet}) => {
 
 
 const styles = StyleSheet.create({
-    _1431605648965_shop_thumb1: {
+
+    background: {
         position: 'absolute',
-        left: '-64px',
-        top: '-2px',
         width: '493px',
         height: '493px',
         backgroundImage: 'url("assets/yard.png")',
@@ -71,6 +78,38 @@ const styles = StyleSheet.create({
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       },
+
+    backyardtitle: {
+      position: 'absolute',
+      left: '63px',
+      top: '72px',
+      width: 'min-content',
+      height: 'min-content',
+      textAlign: 'center',
+      alignItems: 'center',
+      whiteSpace: 'nowrap',
+      flexDirection: 'column',
+      fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+
+    },
+
+    titletext: {
+
+        color: '#2a2b2a',
+        fontSize: '25px',
+        lineHeight: '24px',
+        fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+    },
+
+    imagestyle: {
+      width: 68,
+        height: 68,
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+    },
+
+    
       questionsAnsweredCorrectly: {
         opacity: '1',
         position: 'absolute',
@@ -83,8 +122,7 @@ const styles = StyleSheet.create({
       },    
       _1431605648965_shop_thumb2: {
         position: 'absolute',
-        left: '-58px',
-        top: '491px',
+        
         width: '493px',
         height: '493px',
         backgroundImage: 'url("assets/yard.png")',

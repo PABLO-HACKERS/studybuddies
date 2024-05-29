@@ -13,7 +13,7 @@ const Quiz = ({variable}) => {
   const [right, setRight] = useState(0);
 
   const correct = (num) => {
-    if (variable.questions[questionNum].correct_answer === variable.questions[questionNum].options[num]) {
+    if (variable.questions[questionNum].correct_answer === num) {
         setShowCorrect(true);
         setRight(prevNum =>prevNum + 1);
     } else {
@@ -34,7 +34,7 @@ const Quiz = ({variable}) => {
 
 
   return (
-    <View style={{zIndex:18000}}>
+    <View style={{zIndex:4}}>
     <div style={{height:1000, width:844, position: 'absolute', backgroundColor: '#d7d7d7'}}>
       <View style={styles.homeIndicator}>
         <View style={styles.homeIndicator2}></View>

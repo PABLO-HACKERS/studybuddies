@@ -35,7 +35,7 @@ const Splash = ({ diff, topic }) => {
   });
 
   return (
-    <View style={{ zIndex: 15000 }}>
+    <View style={{ zIndex: 5 }}>
       <div style={{ height: 1000, width: 844, position: 'absolute', backgroundColor: '#d7d7d7' }}></div>
       {showQuiz && <Quiz variable={response} />}
       <View style={styles.container}>
