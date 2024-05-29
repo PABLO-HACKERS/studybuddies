@@ -1,23 +1,21 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { AppRegistry } from 'react-native';
-import { name as appName } from '../app.json';
 import ClassPage from './classpage';
+
+const appName = "studybuddies";
 
 AppRegistry.registerComponent(appName, () => App);
 
-if (module.hot) {
-  module.hot.accept();
-}
-
-export default function App() {
+const App: React.FC = () => {
   return (
     <View style={styles.container}>
       <ClassPage />
       <StatusBar style="auto" />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -27,3 +25,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;

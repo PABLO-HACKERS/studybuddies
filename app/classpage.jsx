@@ -70,6 +70,7 @@ const ClassPage = () => {
 
             {showShop && <BuddyShop 
                 balance={balance}
+                stylesheet={styles}
             />}
 
             <TouchableOpacity style={styles.btn} onPress={openBackyard}>
