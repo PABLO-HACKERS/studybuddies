@@ -40,8 +40,7 @@ const Quiz = ({ variable, stylesheet }) => {
           backgroundColor: "#d7d7d7",
         }}
       >
-        <View style={styles.findTheDerivativeOfTheFunction}>
-          <Text style={styles.textBlock}></Text>
+        <View style={styles.box}>
           <Text style={styles.textBlock}>
             {variable.questions[questionNum].question}
           </Text>
@@ -50,11 +49,11 @@ const Quiz = ({ variable, stylesheet }) => {
         <Text style={styles.q1}>Q1</Text>
 
         {showCorrect && showNext && (
-          <Answer word="correct" score={(right / 3.0) * 100.0} />
+          <Answer word="correct" score={(right / 3.0) * 100.0} stylesheet={stylesheet} />
         )}
 
         {showInCorrect && showNext && (
-          <Answer word="incorrect" score={(right / 3.0) * 100.0} />
+          <Answer word="incorrect" score={(right / 3.0) * 100.0} stylesheet={stylesheet}/>
         )}
 
         <TouchableOpacity
@@ -129,7 +128,7 @@ const styles = StyleSheet.create({
       "pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif",
   },
   
-  findTheDerivativeOfTheFunction: {
+  box: {
     position: "absolute",
     left: 50,
     top: 357,
