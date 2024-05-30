@@ -83,7 +83,7 @@ const ClassPage = () => {
                 stylesheet={styles}
             />}
             
-            {showClass && <OpenClass />}
+            {showClass && <OpenClass stylesheet={styles} />}
 
             
             {(showBackyard || showClass || showShop) &&

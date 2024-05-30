@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, Animated, StyleSheet } from 'react-native';
-import { getQuestions } from './index.js';
-import Quiz from './quiz.jsx';
+import React, { useEffect, useRef, useState } from "react";
+import { View, Text, Animated, StyleSheet } from "react-native";
+import { getQuestions } from "./index.js";
+import Quiz from "./quiz.jsx";
 
-const Splash = ({ diff, topic }) => {
+const Splash = ({ diff, topic, stylesheet }) => {
   const progress = useRef(new Animated.Value(0)).current;
   const [response, setResponse] = useState(null); // state to hold the API response
   const [showQuiz, setShowQuiz] = useState(false);
@@ -19,7 +19,7 @@ const Splash = ({ diff, topic }) => {
     if (response !== null) {
       Animated.timing(progress, {
         toValue: 1,
-        duration: 5000, // 5 seconds
+        duration: 1000, // 5 seconds
         useNativeDriver: false,
       }).start(() => {
         setShowQuiz(true);
@@ -31,18 +31,27 @@ const Splash = ({ diff, topic }) => {
 
   const progressBarWidth = progress.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0%', '100%'],
+    outputRange: ["0%", "100%"],
   });
 
   return (
     <View style={{ zIndex: 5 }}>
-      <div style={{ height: 1000, width: 844, position: 'absolute', backgroundColor: '#d7d7d7' }}></div>
-      {showQuiz && <Quiz variable={response} />}
+      <div
+        style={{
+          height: 1000,
+          width: 844,
+          position: "absolute",
+          backgroundColor: "#d7d7d7",
+        }}
+      ></div>
+      {showQuiz && <Quiz variable={response} stylesheet={stylesheet} />}
       <View style={styles.container}>
         <View style={styles.splashContainer}>
           <Text style={styles.textBlock}>Generating Quiz...</Text>
           <View style={styles.progressBarBackground}>
-            <Animated.View style={[styles.progressBarFill, { width: progressBarWidth }]} />
+            <Animated.View
+              style={[styles.progressBarFill, { width: progressBarWidth }]}
+            />
           </View>
         </View>
       </View>
@@ -53,33 +62,34 @@ const Splash = ({ diff, topic }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#d7d7d7',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#d7d7d7",
   },
   splashContainer: {
     width: 390,
     height: 844,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#d7d7d7',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#d7d7d7",
   },
   textBlock: {
-    color: '#2a2b2a',
+    color: "#2a2b2a",
     fontSize: 20,
     marginBottom: 20,
-    fontFamily: 'pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif',
+    fontFamily:
+      "pixelfont, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif",
   },
   progressBarBackground: {
-    width: '80%',
+    width: "80%",
     height: 20,
     borderRadius: 10,
-    backgroundColor: '#e4e4e4',
-    overflow: 'hidden',
+    backgroundColor: "#e4e4e4",
+    overflow: "hidden",
   },
   progressBarFill: {
-    height: '100%',
-    backgroundColor: '#8acb88b2',
+    height: "100%",
+    backgroundColor: "#8acb88b2",
   },
 });
 
